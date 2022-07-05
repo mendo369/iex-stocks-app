@@ -265,7 +265,9 @@ function cargarData() {
         class="stock-item-img"
         />
         <span>|</span>
-        <p class="name-stock">${stock.companyName}</p>
+        <p class="name-stock">${
+          stock.companyName ? stock.companyName : "N/N"
+        }</p>
         <span>|</span>
         <p class="price ${valueDeprecated ? "decrement" : "increment"}">
             ${stock.latestPrice}
@@ -312,7 +314,6 @@ function cargarStock(stockAgregado) {
   if (stockAgregado.close < stockAgregado.open) {
     valueDeprecated = true;
   }
-  let urlLogo;
   const div = document.createElement("div");
   div.className = "stock-item";
   div.innerHTML += `
@@ -324,7 +325,9 @@ function cargarStock(stockAgregado) {
         class="stock-item-img"
         />
         <span>|</span>
-        <p class="name-stock">${stockAgregado.companyName}</p>
+        <p class="name-stock">${
+          stock.companyName ? stock.companyName : "N/N"
+        }</p>
         <span>|</span>
         <p class="price ${valueDeprecated ? "decrement" : "increment"}">
             ${stockAgregado.latestPrice}

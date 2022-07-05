@@ -38,6 +38,7 @@ function agregar(stock) {
   stocks.push(stock);
   LS.setItem(KEY, JSON.stringify(stocks));
   cargarStock(stock);
+  cargarData();
   //como se agregan nuevos elementos hay que darle recursividad al momento de darles eventListeners
   eliminar = document.querySelectorAll(".btn_eliminar");
   eliminar.forEach((btn) => {
