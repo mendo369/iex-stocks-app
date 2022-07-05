@@ -29,7 +29,7 @@ search.addEventListener("click", () => {
     fetch(`${rutaBusqueda}${symbol}/quote?token=${API_KEY}`)
       .then((res) => res.json())
       .then((res) => agregar(res))
-      .catch(() => alert("Stock inexistente"));
+      .catch(() => alert("Puede que este stock no exista"));
   }
 });
 
@@ -38,7 +38,6 @@ function agregar(stock) {
   stocks.push(stock);
   LS.setItem(KEY, JSON.stringify(stocks));
   cargarStock(stock);
-  cargarData();
   //como se agregan nuevos elementos hay que darle recursividad al momento de darles eventListeners
   eliminar = document.querySelectorAll(".btn_eliminar");
   eliminar.forEach((btn) => {

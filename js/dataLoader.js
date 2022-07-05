@@ -306,10 +306,6 @@ function cargarData() {
 cargarData();
 
 function cargarStock(stockAgregado) {
-  //   let datos = ls.getItem("stocks");
-  //   datos = JSON.parse(datos);
-
-  //   let stockAgregado = datos[datos.length - 1];
   let valueDeprecated = false;
   if (stockAgregado.close < stockAgregado.open) {
     valueDeprecated = true;
@@ -319,14 +315,14 @@ function cargarStock(stockAgregado) {
   div.innerHTML += `
         <img
         src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/${
-          stock.symbol
+          stockAgregado.symbol
         }.png"
         alt="ex"
         class="stock-item-img"
         />
         <span>|</span>
         <p class="name-stock">${
-          stock.companyName ? stock.companyName : "N/N"
+          stockAgregado.companyName ? stockAgregado.companyName : "N/N"
         }</p>
         <span>|</span>
         <p class="price ${valueDeprecated ? "decrement" : "increment"}">
